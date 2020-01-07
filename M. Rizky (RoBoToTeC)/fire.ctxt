@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=fire
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ fire\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=fire()
+comment2.params=
+comment2.target=void\ initialiseImages()
+comment2.text=\ \r\n\ Create\ the\ images\ for\ explosion.\r\n
+comment3.params=
+comment3.target=void\ act()
+numComments=4
