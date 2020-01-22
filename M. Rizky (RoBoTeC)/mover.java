@@ -13,11 +13,5 @@ public class mover extends Actor
     public boolean jumping;
     private int direction = 1;
     private int vSpeed = 0;
-
-    
-    public boolean atBottom()
-    {
-        return getY() >= getWorld().getHeight()-1;
-    } 
     
 }

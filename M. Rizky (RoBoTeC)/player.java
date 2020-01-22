@@ -18,23 +18,18 @@ public class player extends mover
     private int shootingCounter = 10;
     private int vSpeed = 0;  
     private static final int acceleration = 1;
-    int score = 0;
-    int nyawa = 3;
     public void act() 
     {
+        checkWorld();
         checkKeys();        
         checkFall();
-        checkWorld();
         shootingCounter --;
         checkRightWalls();
         checkLeftWalls();
         platformAbove();
         if(isTouching(musuhh.class))
         {
-            lvl m = (lvl)getWorld();
-            m.selese();
-            m.stopmusic();
-            Greenfoot.stop();
+            selese();
             Greenfoot.playSound("lose.wav");
         }
     }
@@ -68,12 +63,24 @@ public class player extends mover
     public void moveRight()
     {
         setLocation ( getX() + speed, getY() );
-         direction = 1;
+        direction = 1;
     }
     public void moveLeft()
     {
         setLocation ( getX() - speed, getY() );
         direction = -1;
+    }
+    public void selese1()
+    {
+        getWorld().addObject(new gameover(), getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+        getWorld().addObject(new playagain(), getWorld().getWidth() / 2, 400);
+    }
+    public void selese()
+    {
+        getWorld().addObject(new gameover(), getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+        getWorld().addObject(new playagain(), getWorld().getWidth() / 2, 400);
+        Greenfoot.playSound("lose.wav");
+        getWorld().removeObject(this);
     }
     public void setVSpeed(int speed)
     {
@@ -83,15 +90,11 @@ public class player extends mover
     {
         setLocation ( getX(), getY() + vSpeed);
         vSpeed = vSpeed + acceleration;
-        if (atBottom())
-        {
-            lvl m = (lvl)getWorld();
-            m.selese();
-            m.stopmusic();
-            Greenfoot.playSound("lose.wav");
-            Greenfoot.stop();
-        }
         jumping = true;
+        if (getY() == getWorld().getHeight()-1)
+        {
+            selese1();
+        }
     }
     public boolean shooting()
     {
@@ -133,7 +136,7 @@ public class player extends mover
         {
             setImage("dead.png");
         }
-          if(Greenfoot.isKeyDown("space")) 
+        if(Greenfoot.isKeyDown("space")) 
         {
             shooting();
         }
@@ -282,8 +285,6 @@ public class player extends mover
         }
         if (isTouching(portal5.class))
         {
-            lvl m = (lvl)getWorld();
-            m.stopmusic();
             Greenfoot.setWorld(new bb());
             Greenfoot.playSound("win.wav");
         }

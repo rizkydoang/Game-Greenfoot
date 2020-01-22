@@ -29,7 +29,6 @@ public class bg3 extends lvl
         }
         score();
         nyawa();
-        stopgame();
     }
 
     /**
@@ -55,11 +54,6 @@ public class bg3 extends lvl
     {
         if(score == 60)
             nyawa = nyawa + 1;
-    }
-
-    public void stopgame(){
-        if(nyawa == 0)
-            selese();
     }
 
     /**

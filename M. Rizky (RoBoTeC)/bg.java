@@ -26,9 +26,6 @@ public class bg extends lvl
         if(Greenfoot.getRandomNumber(1000)<4){
             addObject(new burung(),0,Greenfoot.getRandomNumber(210));
         }
-        score();
-        nyawa();
-        stopgame();
     }
 
     private void prepare()
@@ -74,30 +71,4 @@ public class bg extends lvl
         up up3 = new up();
         addObject(up3,514,225);
     }
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    public void score()
-    {
-        showText("Score = "+ score , 50, 30);
-    }
-
-    public void tambah()
-    {
-        score = score + 20;
-    }
-
-    public void tambahnyawa()
-    {
-        if(score == 60)
-            nyawa = nyawa + 1;
-    }
-
-    public void nyawa()
-    {
-        showText("Nyawa = "+ nyawa , 900, 30);
-    }
-
 }

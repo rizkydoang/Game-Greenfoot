@@ -21,13 +21,19 @@ public class lvl extends World
     }
     public void act()
     {
-        stopgame();
+
     }
-    public void selese()
+    public void stopgame(){
+        if(nyawa == 0)
+        selese();
+        player a = new player();
+        removeObject(a);
+    }
+            public void selese()
     {
         addObject(new gameover(), getWidth() / 2, getHeight() / 2);
         Greenfoot.playSound("lose.wav");
-        Greenfoot.stop();
+
     }
     public void tambah()
     {
@@ -38,18 +44,12 @@ public class lvl extends World
         if(score == 60)
         nyawa = nyawa + 1;
     }
-    public void stopgame(){
-        if(nyawa == 0)
-        selese();
-    }
+
     public void music()
     {        
         if(!BGM.isPlaying()){
         BGM.playLoop();
         BGM.setVolume(50);
         }
-    }
-    public void stopmusic(){
-        BGM.stop();
     }
 }

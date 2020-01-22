@@ -24,7 +24,6 @@ public class bg5 extends lvl
         }
         score();
         nyawa();
-        stopgame();
     }
     
     /**
