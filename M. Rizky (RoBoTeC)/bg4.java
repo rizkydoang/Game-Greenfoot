@@ -42,28 +42,20 @@ public class bg4 extends lvl
     {
         showText("Nyawa = "+ nyawa , 900, 30);
     }
-
-    public void tambah()
-    {
-        score = score + 20;
-    }
-
-    public void tambahnyawa()
-    {
-        if(score == 60)
-            nyawa = nyawa + 1;
-    }
-
-    public void selese()
+     public void selese()
     {
         addObject(new gameover(), getWidth() / 2, getHeight() / 2);
         Greenfoot.playSound("lose.wav");
-        Greenfoot.stop();
     }
-
+    public void selese1()
+    {
+        addObject(new gameover(), getWidth() / 2, getHeight() / 2);
+        addObject(new playagain(), getWidth() / 2, 400);
+        removeObjects(getObjects(player.class));
+    }
     public void stopgame(){
         if(nyawa == 0)
-            selese();
+            selese1();
     }
 
     /**

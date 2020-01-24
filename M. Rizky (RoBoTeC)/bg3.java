@@ -18,7 +18,6 @@ public class bg3 extends lvl
 
         prepare();
     }
-
     public void act()
     {
         if(Greenfoot.getRandomNumber(1000)<4){
@@ -29,33 +28,26 @@ public class bg3 extends lvl
         }
         score();
         nyawa();
+        stopgame();
     }
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     public void score()
     {
         showText("score = "+ score , 50, 30);
     }
-
     public void nyawa()
     {
         showText("Nyawa = "+ nyawa , 900, 30);
     }
-
-    public void tambah()
+    public void selese1()
     {
-        score = score + 20;
+        addObject(new gameover(), getWidth() / 2, getHeight() / 2);
+        addObject(new playagain(), getWidth() / 2, 400);
+        removeObjects(getObjects(player.class));
     }
-
-    public void tambahnyawa()
-    {
-        if(score == 60)
-            nyawa = nyawa + 1;
+    public void stopgame(){
+        if(nyawa == 0)
+            selese1();
     }
-
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

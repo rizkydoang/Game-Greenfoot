@@ -9,10 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class bg2 extends lvl
 {
     public static boolean stopGame = false;
-    player player = new player();
     public bg2()
     {    
-
         prepare();
     }
 
@@ -38,28 +36,15 @@ public class bg2 extends lvl
     {
         showText("Nyawa = "+ nyawa , 900, 30);
     }
-
-    public void tambah()
-    {
-        score = score + 20;
-    }
-
-    public void tambahnyawa()
-    {
-        if(score == 60)
-            nyawa = nyawa + 1;
-    }
-
-    public void selese()
+    public void selese1()
     {
         addObject(new gameover(), getWidth() / 2, getHeight() / 2);
-        Greenfoot.playSound("lose.wav");
-        Greenfoot.stop();
+        addObject(new playagain(), getWidth() / 2, 400);
+        removeObjects(getObjects(player.class));
     }
-
     public void stopgame(){
         if(nyawa == 0)
-            selese();
+            selese1();
     }
 
     /**

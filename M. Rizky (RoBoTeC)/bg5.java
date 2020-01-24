@@ -83,20 +83,18 @@ public class bg5 extends lvl
     {
         showText("Score = "+ score , 50, 30);
     }
-
-    public void tambah()
-    {
-        score = score + 20;
-    }
-
-    public void tambahnyawa()
-    {
-        if(score == 60)
-            nyawa = nyawa + 1;
-    }
-
     public void nyawa()
     {
         showText("Nyawa = "+ nyawa , 900, 30);
+    }
+    public void selese1()
+    {
+        addObject(new gameover(), getWidth() / 2, getHeight() / 2);
+        addObject(new playagain(), getWidth() / 2, 400);
+        removeObjects(getObjects(player.class));
+    }
+    public void stopgame(){
+        if(nyawa == 0)
+            selese1();
     }
 }

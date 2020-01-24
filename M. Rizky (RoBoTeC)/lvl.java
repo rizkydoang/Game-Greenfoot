@@ -23,17 +23,10 @@ public class lvl extends World
     {
 
     }
-    public void stopgame(){
-        if(nyawa == 0)
-        selese();
-        player a = new player();
-        removeObject(a);
-    }
-            public void selese()
+    public void selese()
     {
         addObject(new gameover(), getWidth() / 2, getHeight() / 2);
         Greenfoot.playSound("lose.wav");
-
     }
     public void tambah()
     {

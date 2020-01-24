@@ -26,6 +26,9 @@ public class bg extends lvl
         if(Greenfoot.getRandomNumber(1000)<4){
             addObject(new burung(),0,Greenfoot.getRandomNumber(210));
         }
+        nyawa();
+        score();
+        stopgame();
     }
 
     private void prepare()
@@ -34,7 +37,6 @@ public class bg extends lvl
         addObject(wall1,171,122);
         wall1 wall12 = new wall1();
         addObject(wall12,255,417);
-
         box box = new box();
         addObject(box,99,369);
         box box2 = new box();
@@ -70,5 +72,23 @@ public class bg extends lvl
         addObject(down3,510,95);
         up up3 = new up();
         addObject(up3,514,225);
+    }
+    public void score()
+    {
+        showText("score = "+ score , 50, 30);
+    }
+    public void nyawa()
+    {
+        showText("Nyawa = "+ nyawa , 900, 30);
+    }
+    public void selese1()
+    {
+        addObject(new gameover(), getWidth() / 2, getHeight() / 2);
+        addObject(new playagain(), getWidth() / 2, 400);
+        removeObjects(getObjects(player.class));
+    }
+    public void stopgame(){
+        if(nyawa == 0)
+            selese1();
     }
 }
