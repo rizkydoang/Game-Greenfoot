@@ -15,7 +15,6 @@ public class help extends lvl
      */
     public help()
     {
-
         prepare();
     }
 
@@ -31,6 +30,6 @@ public class help extends lvl
     private void prepare()
     {
         back back = new back();
-        addObject(back,884,410);
+        addObject(back,884,40);
     }
 }

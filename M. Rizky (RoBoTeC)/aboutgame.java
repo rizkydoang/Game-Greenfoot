@@ -25,6 +25,6 @@ public class aboutgame extends lvl
     private void prepare()
     {
         back back = new back();
-        addObject(back,883,407);
+        addObject(back,883,40);
     }
 }
